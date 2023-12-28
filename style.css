@@ -1,0 +1,90 @@
+.logo{
+    height: 4rem;
+    opacity: 100;
+}
+body {
+    background-image: url('/Images/Coffee-Beans-HD-Wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.productImage{
+    height: 25rem;
+}
+
+html, body {
+    height: 100vh;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrap {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    margin-bottom: -50px;
+        
+}
+
+.content-wrapAboutUs {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin-top: 150px;
+    margin-bottom: -50px;
+}
+
+.content-wrapProducts {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: -50px;
+}
+
+.content-wrapCart {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    margin-bottom: -50px;
+        
+}
+
+@media (max-width: 768px) { 
+    .content-wrapProducts {
+        margin-top: 100px;
+    }
+}
+
+.stroked-text {
+    -webkit-text-stroke: 1px black;
+    color: antiquewhite;
+    font-weight:bolder;
+}
+
+.stroked-text2 {
+    font-size:x-large;
+    -webkit-text-stroke: 1px black;
+    color: antiquewhite;
+    font-weight:bolder;
+}
+
+.cartImage{
+    height: 4rem;
+    align-items: start;
+} 
+
+#map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
