@@ -113,32 +113,32 @@ function updateCart(){
         product.className = 'row my-3 align-content-center justify-content-center';
 
         let imgCol = document.createElement('div')
-        imgCol.className = 'col-md-1'
+        imgCol.className = 'col-md-1';
         let img = document.createElement('img');
         img.className = 'cartImage stroke-text2';
         img.src = cartList[i].imagePath;
         img.alt = 'product image';
-        imgCol.appendChild(img)
+        imgCol.appendChild(img);
         product.appendChild(imgCol);
         
         let titleCol = document.createElement('div');
-        titleCol.className = 'col-md-3'
+        titleCol.className = 'col-md-3';
         let title = document.createElement('h3');
         title.className = 'display-6 stroked-text2';
         title.textContent = cartList[i].productName;
-        titleCol.appendChild(title)
+        titleCol.appendChild(title);
         product.appendChild(titleCol);
 
         let priceCol = document.createElement('div');
-        priceCol.className = 'col-md-1'
+        priceCol.className = 'col-md-1';
         let price = document.createElement('h3');
         price.className = 'display-6 stroked-text2';
         price.textContent = cartList[i].price + 'kr';
         priceCol.appendChild(price);
-        product.appendChild(priceCol)
+        product.appendChild(priceCol);
         
-        let quantityCol = document.createElement('div')
-        quantityCol.className = 'col-md-1 col-sm-1 mx-3'
+        let quantityCol = document.createElement('div');
+        quantityCol.className = 'col-md-1 col-sm-1 mx-3';
         let quantity = document.createElement('input');
         quantity.type = 'number';
         quantity.className = 'form-control';
@@ -146,13 +146,13 @@ function updateCart(){
         quantity.min = 1;
         quantity.max = 100;
         quantity.addEventListener('change', function(event) {
-            let newQuantity = parseInt(event.target.value)
-            cartList[i].numberOfItem = newQuantity
-            updateTotalPrice()
-            updateCart()
+            let newQuantity = parseInt(event.target.value);
+            cartList[i].numberOfItem = newQuantity;
+            updateTotalPrice();
+            updateCart();
         })
-        quantityCol.appendChild(quantity)
-        product.appendChild(quantityCol)
+        quantityCol.appendChild(quantity);
+        product.appendChild(quantityCol);
 
         let removeButtonDiv = document.createElement('div');
         removeButtonDiv.className = 'col-md-3';
@@ -163,11 +163,11 @@ function updateCart(){
             removeFromCart(cartList[i]);
         });
         removeButtonDiv.appendChild(removeButton);
-        product.appendChild(removeButtonDiv)
+        product.appendChild(removeButtonDiv);
 
-        let divide = document.createElement('br')
-        divide.className = ''
-        product.appendChild(divide)
+        let divide = document.createElement('br');
+        divide.className = '';
+        product.appendChild(divide);
 
         cart.appendChild(product);   
     };
@@ -179,20 +179,20 @@ function updateCart(){
     payButtonCol.className = 'col-md-4 text-center';
     let payButton = document.createElement('button');
     payButton.className = 'btn btn-lg btn-dark btn-outline-light';
-    payButton.textContent = 'Checkout'
+    payButton.textContent = 'Checkout';
     payButton.addEventListener('click', function(){
         emptyCart()
-    })
+    });
     payButtonCol.appendChild(payButton);
     bottomRow.appendChild(payButtonCol);
 
-    let totalPriceCol = document.createElement('div')
+    let totalPriceCol = document.createElement('div');
     totalPriceCol.className = 'col-md-3 text-right';
     let totalPrice = updateTotalPrice();
     let displayTotalPrice = document.createElement('h3');
     displayTotalPrice.className='stroked-text';
     displayTotalPrice.textContent= "Total: " + totalPrice + "kr";
-    totalPriceCol.appendChild(displayTotalPrice)
+    totalPriceCol.appendChild(displayTotalPrice);
     bottomRow.appendChild(totalPriceCol);
 
     cart.appendChild(bottomRow);
@@ -204,7 +204,7 @@ function updateCart(){
 
 function addToCart(product){
 
-    let foundItem = cartList.find(p => p.productName === product.productName)
+    let foundItem = cartList.find(p => p.productName === product.productName);
     if(foundItem){
         foundItem.numberOfItem++;
     } else {
@@ -216,13 +216,13 @@ function addToCart(product){
 }
 
 function removeFromCart(product){
-    let itemInCart = cartList.find(p => p.productName === product.productName)
+    let itemInCart = cartList.find(p => p.productName === product.productName);
 
     if(itemInCart){
         if(itemInCart.numberOfItem > 1){
             itemInCart.numberOfItem -= 1;
         } else {
-            cartList = cartList.filter(p => p.productName !== product.productName)
+            cartList = cartList.filter(p => p.productName !== product.productName);
         }
     }
     localStorage.setItem('cart', JSON.stringify(cartList));
@@ -246,7 +246,7 @@ function emptyCart(){
         updateCart();
         localStorage.removeItem('cart');
     } else {
-        alert('Cart is empty')
+        alert('Cart is empty');
     }
 }
 
